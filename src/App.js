@@ -22,7 +22,7 @@ export default function App() {
                 "completed": false
             },
         ]
-    )
+    );
 
     function onTodoCheckboxChanged(event, id) {
         setTodos(todos.map(todo => {
@@ -35,9 +35,17 @@ export default function App() {
         console.log("On change!", event, id);
     }
 
+    function onTodoCancelClick(event, id) {
+        setTodos(todos.filter(todo => {
+            return todo.id !== id;
+        }))
+    }
+
     return (
         <div>
-            <TodoGrid todos={todos} onTodoCheckboxChanged={onTodoCheckboxChanged}/>
+            <TodoGrid todos={todos}
+                      onTodoCheckboxChanged={onTodoCheckboxChanged}
+                      onTodoCancelClick={onTodoCancelClick}/>
         </div>
     );
 }

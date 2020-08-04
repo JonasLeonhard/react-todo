@@ -4,23 +4,29 @@ import PropTypes from "prop-types";
 export default function TodoItem(props) {
     TodoItem.propTypes = {
         todo: PropTypes.object
-    }
+    };
 
-    function getStyle() {
-        return {
-            background: 'blue',
-            padding: '10px',
-            borderBottom: '1px solid #ccc',
-            textDecoration: props.todo.completed ? 'line-through' : 'none'
-        }
-    }
+    const todoItemStyle = {
+        background: '#230033',
+        color: 'white',
+        padding: '10px',
+        borderBottom: '1px solid #ccc',
+        textDecoration: props.todo.completed ? 'line-through' : 'none'
+    };
+
+    const cancelButtonStyle = {
+        float: 'right'
+    };
 
     return (
-        <div className="todo-item" style={getStyle(props)}>
+        <div className="todo-item" style={todoItemStyle}>
             <input type="checkbox"
                    onChange={(e) => props.onTodoCheckboxChanged(e, props.todo.id)}
                    defaultChecked={props.todo.completed}/>
             {props.todo.title}
+            <button onClick={(e) => props.onTodoCancelClick(e, props.todo.id)}
+                    style={cancelButtonStyle}>X
+            </button>
         </div>
-    )
+    );
 }
