@@ -1,5 +1,6 @@
 import React from "react";
 import TodoItem from "./TodoItem";
+import AddTodoForm from "./AddTodoForm";
 import PropTypes from "prop-types";
 
 
@@ -26,6 +27,7 @@ export default function TodoGrid(props) {
                               onTodoCancelClick={props.onTodoCancelClick}/>
                 )
             )}
+            <AddTodoForm onAddTodoForm={props.onAddTodoForm}/>
         </div>
     )
 }

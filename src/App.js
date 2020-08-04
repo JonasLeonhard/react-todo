@@ -1,23 +1,24 @@
 import React, {useState} from 'react';
 import './App.css';
 import TodoGrid from "./components/TodoGrid";
+import uuid from "uuid";
 
 export default function App() {
 
     const [todos, setTodos] = useState(
         [
             {
-                "id": 1,
+                "id": uuid.v4(),
                 "title": "Title of Todo 1",
                 "completed": false
             },
             {
-                "id": 2,
+                "id": uuid.v4(),
                 "title": "Title of Todo 2",
                 "completed": true
             },
             {
-                "id": 3,
+                "id": uuid.v4(),
                 "title": "Title of Todo 3",
                 "completed": false
             },
@@ -41,11 +42,20 @@ export default function App() {
         }))
     }
 
+    function onAddTodoForm(addTodo) {
+        setTodos([...todos, {
+            "id": uuid.v4(),
+            "title": addTodo,
+            "completed": false
+        }])
+    }
+
     return (
         <div>
             <TodoGrid todos={todos}
                       onTodoCheckboxChanged={onTodoCheckboxChanged}
-                      onTodoCancelClick={onTodoCancelClick}/>
+                      onTodoCancelClick={onTodoCancelClick}
+                      onAddTodoForm={onAddTodoForm}/>
         </div>
     );
 }
