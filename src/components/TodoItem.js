@@ -3,7 +3,9 @@ import PropTypes from "prop-types";
 
 export default function TodoItem(props) {
     TodoItem.propTypes = {
-        todo: PropTypes.object
+        todo: PropTypes.object,
+        onTodoCheckboxChanged: PropTypes.func,
+        onTodoCancelClick: PropTypes.func
     };
 
     const todoItemStyle = {

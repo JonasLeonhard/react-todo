@@ -6,7 +6,10 @@ import PropTypes from "prop-types";
 
 export default function TodoGrid(props) {
     TodoGrid.propTypes = {
-        todos: PropTypes.array.isRequired
+        todos: PropTypes.array.isRequired,
+        onTodoCheckboxChanged: PropTypes.func.isRequired,
+        onTodoCancelClick: PropTypes.func.isRequired,
+        onAddTodoForm: PropTypes.func.isRequired
     };
 
     const todoGridStyle = {
