@@ -1,6 +1,7 @@
 import React, {useState} from 'react';
 import './App.css';
 import TodoGrid from "./components/TodoGrid";
+import ChildrenComponent from "./components/ChildrenComponent";
 import uuid from "uuid";
 
 export default function App() {
@@ -56,6 +57,11 @@ export default function App() {
                       onTodoCheckboxChanged={onTodoCheckboxChanged}
                       onTodoCancelClick={onTodoCancelClick}
                       onAddTodoForm={onAddTodoForm}/>
+            <ChildrenComponent>
+                <p>
+                    input to Children Component
+                </p>
+            </ChildrenComponent>
         </div>
     );
 }
